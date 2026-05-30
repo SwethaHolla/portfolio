@@ -1,0 +1,152 @@
+{
+  "name": "Swetha Holla Umashankara",
+  "role": "Software Engineer and Data Scientist",
+  "tagline": "Leave the world better than you found it.",
+  "location": "Glasgow, Scotland",
+  "email": "uswethaholla@gmail.com",
+  "github": "https://github.com/SwethaHolla",
+  "linkedin": "https://www.linkedin.com/in/swetha-holla/",
+  "yearsOfExperience": 3,
+  "philosophy": "I build scalable backend systems and AI-driven applications at the intersection of engineering and intelligent automation. My work focuses on cloud-native infrastructure, production-grade AI systems, and building products that create measurable impact.",
+  "skills": {
+    "AI/ML & Generative AI": [
+      "LLMs",
+      "Claude",
+      "Gemini",
+      "Llama",
+      "RAG",
+      "Agentic Workflows",
+      "LangChain",
+      "LangGraph",
+      "PyTorch",
+      "TensorFlow",
+      "FAISS",
+      "ChromaDB",
+      "pgvector"
+    ],
+    "Backend": [
+      "Spring Boot",
+      "FastAPI",
+      "REST APIs"
+    ],
+    "Cloud & DevOps": [
+      "AWS EC2",
+      "AWS S3",
+      "AWS Lambda",
+      "AWS SageMaker",
+      "Docker",
+      "Kubernetes",
+      "Jenkins",
+      "GitHub Actions",
+      "ELK Stack"
+    ],
+    "Languages": [
+      "Python",
+      "Java",
+      "JavaScript",
+      "TypeScript",
+      "SQL"
+    ],
+    "Databases": [
+      "PostgreSQL",
+      "MySQL",
+      "MongoDB"
+    ],
+    "Developer Tools": [
+      "Apache Spark",
+      "NetworkX",
+      "Git",
+      "Maven",
+      "OpenAPI"
+    ]
+  },
+  "experience": [
+    {
+      "id": "exp-1",
+      "company": "Gainr Analytics",
+      "role": "Data Scientist",
+      "period": "Jul 2025 -- Present",
+      "location": "Glasgow, Scotland",
+      "description": "Spearheaded the engineering and production deployment of a proprietary horse racing prediction engine using MLP with self-attention and ensemble models, outperforming industry baselines by 33% and establishing the primary model for 100% of production trades.",
+      "highlights": [
+        "Integrated LLMs including Claude and Gemini with a LangChain RAG pipeline, increasing Precision from 0.58 to 0.79 (+36%) and reducing query latency by 33%.",
+        "Orchestrated multi-agent workflows using LangGraph state machines with persistent memory and guardrails across 1,000+ automated daily interactions.",
+        "Engineered containerized AI services using FastAPI and Docker with observability and distributed tracing, maintaining 99.9% uptime."
+      ]
+    },
+    {
+      "id": "exp-2",
+      "company": "Temenos",
+      "role": "Associate Product Engineer",
+      "period": "Dec 2021 -- Mar 2024",
+      "location": "Bengaluru, India",
+      "description": "Pioneered the Temenos IRIS Interaction Framework using Open API (Swagger), deploying 20+ RESTful APIs to expose core banking capabilities to 3,000+ global clients.",
+      "highlights": [
+        "Executed cloud migration to AWS using EC2, Lambda, and S3 while transforming TAFJ/JMS connectors into Spring Boot microservices.",
+        "Developed standardized deployment frameworks using Maven Archetypes, reducing onboarding time by 40%.",
+        "Improved production stability through JVM profiling and SOLID design patterns, reducing P99 latency by 20%.",
+        "Implemented Jenkins and GitHub Actions CI/CD pipelines and improved monitoring using ELK Stack."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "proj-1",
+      "title": "FinTech Network Analysis",
+      "description": "Engineered a distributed data pipeline processing 1M+ financial records using Apache Spark and NLP-driven feature extraction to identify actionable market trends.",
+      "thumbnail": "/projects/fintech-network-analysis.jpg",
+      "github": "https://github.com/SwethaHolla/reddit_data_analysis",
+      "tags": [
+        "Python",
+        "Apache Spark",
+        "NLP",
+        "NetworkX",
+        "VADER"
+      ],
+      "highlights": [
+        "Built graph-based influence models for Reddit financial communities using NetworkX centrality measures.",
+        "Applied transformer-based classifiers to track sentiment shifts.",
+        "Created executive dashboards using Matplotlib and Plotly."
+      ]
+    },
+    {
+      "id": "proj-2",
+      "title": "Gesture-Controlled Kiosk Interface",
+      "description": "Built a touchless kiosk interface during COVID using the PAJ7620U2 gesture sensor and OpenCV with a 5ms real-time response.",
+      "thumbnail": "/projects/gesture-kiosk.jpg",
+      "github": "https://github.com/SwethaHolla",
+      "tags": [
+        "Computer Vision",
+        "OpenCV",
+        "Real-time Analysis"
+      ],
+      "highlights": [
+        "Reduced implementation costs by 66% compared to traditional touchscreen infrastructure.",
+        "Recognised with a Government of India IEDC scholarship."
+      ]
+    }
+  ],
+  "awards": [
+    {
+      "id": "award-1",
+      "title": "Global Leadership Scholarship",
+      "issuer": "University of Glasgow"
+    },
+    {
+      "id": "award-2",
+      "title": "Government of India IEDC Scholarship",
+      "issuer": "Government of India",
+      "description": "Awarded for achievement in technical innovation."
+    }
+  ],
+  "education": [
+    {
+      "id": "edu-1",
+      "institution": "University of Glasgow",
+      "degree": "MSc",
+      "field": "Data Science",
+      "year": "2024 -- 2025",
+      "location": "Glasgow, Scotland"
+    }
+  ]
+}
