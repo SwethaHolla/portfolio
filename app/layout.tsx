@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "@/app/globals.css";
 import { ResumeProvider } from "@/lib/resume-context";
 import CustomCursor from "@/components/ui/CustomCursor";
+import { Analytics } from "@vercel/analytics/next";
 import resumeData from "@/data/resume.json";
 
 export const metadata: Metadata = {
@@ -44,6 +45,7 @@ export default function RootLayout({
           <CustomCursor />
           {children}
         </ResumeProvider>
+        <Analytics />
       </body>
     </html>
   );
