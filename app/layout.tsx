@@ -6,21 +6,21 @@ import resumeData from "@/data/resume.json";
 
 export const metadata: Metadata = {
   title: {
-    default: `${resumeData.name} — ${resumeData.role}`,
-    template: `%s | ${resumeData.name}`,
+    default: "Swetha's portfolio",
+    template: "%s | Swetha's portfolio",
   },
   description: resumeData.philosophy,
   keywords: ["portfolio", "designer", "engineer", resumeData.name, resumeData.role],
   authors: [{ name: resumeData.name }],
   openGraph: {
     type: "website",
-    title: resumeData.name,
+    title: "Swetha's portfolio",
     description: resumeData.philosophy,
-    siteName: resumeData.name,
+    siteName: "Swetha's portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: resumeData.name,
+    title: "Swetha's portfolio",
     description: resumeData.philosophy,
   },
   robots: { index: true, follow: true },

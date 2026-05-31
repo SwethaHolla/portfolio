@@ -8,7 +8,7 @@ import Fireflies from "@/components/ui/Fireflies";
 const fadeUp = (delay: number) => ({
   initial: { opacity: 0, y: 24 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 1, delay, ease: [0.25, 0.46, 0.45, 0.94] },
+  transition: { duration: 1, delay, ease: [0.25, 0.46, 0.45, 0.94] as const },
 });
 
 export default function HeroSection() {
@@ -49,45 +49,52 @@ export default function HeroSection() {
 
       <div className="noise-overlay" />
       <div className="vignette" />
-      <Fireflies count={24} />
+      <Fireflies count={200} />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-5xl mx-auto">
-        {/* Pixel cat */}
-        <motion.div
-          {...fadeUp(0.3)}
-          className="mb-10 animate-float"
-        >
-          <PixelCat scene="hero" size={14} />
-        </motion.div>
+      <div className="relative z-10 flex flex-col self-start w-full px-6 md:px-20 md:flex-row">
+        {/* Left column — headline */}
+        <div className="pt-12">
+          <motion.h1 {...fadeUp(0.6)} className="display-xl text-ivory mb-0 max-w-4xl text-left">
+            Leave the world<br />
+            <em className="italic text-gold/80">better</em> than<br />
+            you found it.
+          </motion.h1>
+        </div>
 
-        {/* Headline */}
-        <motion.h1 {...fadeUp(0.6)} className="display-xl text-ivory mb-6 max-w-4xl">
-          Leave the world<br />
-          <em className="italic text-gold/80">better</em> than<br />
-          you found it.
-        </motion.h1>
+        {/* Right column — pixel cat + info */}
+        <div className="pt-12 flex flex-col items-center text-center">
+          <motion.div
+            {...fadeUp(0.3)}
+            className="animate-float"
+          >
+            <PixelCat scene="hero" size={14} />
+          </motion.div>
+          <br />
+          <motion.h2 {...fadeUp(0.9)} className="text-2xl md:text-4xl font-bold text-ivory/90 mb-1">
+            {data.name}
+          </motion.h2>
+          <motion.p {...fadeUp(0.9)} className="text-sm md:text-base text-ivory/60 mb-8">
+            {data.role}
+          </motion.p>
 
-        <motion.p {...fadeUp(0.9)} className="label-mono text-ivory/40 mb-8 max-w-xs leading-relaxed">
-          {data.name} &mdash; {data.role}
-        </motion.p>
+          {/* Philosophy */}
+          <motion.p
+            {...fadeUp(1.1)}
+            className="font-display text-lg md:text-xl text-ivory/50 max-w-xl leading-relaxed font-light italic"
+          >
+            &ldquo;{data.philosophy}&rdquo;
+          </motion.p>
+        </div>
 
-        {/* Philosophy */}
-        <motion.p
-          {...fadeUp(1.1)}
-          className="font-display text-lg md:text-xl text-ivory/50 max-w-xl leading-relaxed font-light italic"
-        >
-          &ldquo;{data.philosophy}&rdquo;
-        </motion.p>
-
-        {/* Scroll hint */}
+        {/* Scroll hint
         <motion.div
           {...fadeUp(1.6)}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         >
           <span className="label-mono" style={{ fontSize: "0.55rem" }}>scroll</span>
           <div className="w-px h-12 bg-gradient-to-b from-ivory/20 to-transparent animate-breathe" />
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

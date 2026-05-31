@@ -13,12 +13,12 @@ export default function AwardsSection() {
     <section
       id="awards"
       className="section-full py-32"
-      style={{ background: "linear-gradient(180deg, #0d1a15 0%, #0a1520 50%, #0f1520 100%)" }}
+      style={{ background: "linear-gradient(180deg, #63c4e1 0%, #1e214b 50%, #1c140c 100%)" }}
     >
       {/* Water surface */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         <div className="absolute bottom-0 inset-x-0 h-2/3"
-          style={{ background: "linear-gradient(0deg, rgba(20,50,80,0.4) 0%, transparent 100%)" }} />
+          style={{ background: "linear-gradient(0deg, #1c140c 0%, transparent 100%)" }} />
         {/* Caustic light patterns */}
         {[...Array(5)].map((_, i) => (
           <div key={i}
@@ -57,7 +57,7 @@ export default function AwardsSection() {
           variants={fadeUpVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="label-mono text-ivory/30 mb-3">04 / Recognition</p>
+          <p className="label-mono text-ivory/30 mb-3">06 / Recognition</p>
           <h2 className="display-lg text-ivory">Awards & honours.</h2>
         </motion.div>
 

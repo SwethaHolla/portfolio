@@ -89,43 +89,6 @@
       ]
     }
   ],
-  "projects": [
-    {
-      "id": "proj-1",
-      "title": "FinTech Network Analysis",
-      "description": "Engineered a distributed data pipeline processing 1M+ financial records using Apache Spark and NLP-driven feature extraction to identify actionable market trends.",
-      "thumbnail": "/projects/fintech-network-analysis.jpg",
-      "github": "https://github.com/SwethaHolla/reddit_data_analysis",
-      "tags": [
-        "Python",
-        "Apache Spark",
-        "NLP",
-        "NetworkX",
-        "VADER"
-      ],
-      "highlights": [
-        "Built graph-based influence models for Reddit financial communities using NetworkX centrality measures.",
-        "Applied transformer-based classifiers to track sentiment shifts.",
-        "Created executive dashboards using Matplotlib and Plotly."
-      ]
-    },
-    {
-      "id": "proj-2",
-      "title": "Gesture-Controlled Kiosk Interface",
-      "description": "Built a touchless kiosk interface during COVID using the PAJ7620U2 gesture sensor and OpenCV with a 5ms real-time response.",
-      "thumbnail": "/projects/gesture-kiosk.jpg",
-      "github": "https://github.com/SwethaHolla",
-      "tags": [
-        "Computer Vision",
-        "OpenCV",
-        "Real-time Analysis"
-      ],
-      "highlights": [
-        "Reduced implementation costs by 66% compared to traditional touchscreen infrastructure.",
-        "Recognised with a Government of India IEDC scholarship."
-      ]
-    }
-  ],
   "awards": [
     {
       "id": "award-1",

@@ -1,15 +1,59 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+@import "tailwindcss";
 
-:root {
+@theme {
+  --color-bark: #1a120b;
+  --color-bark-50: #f5ede5;
+  --color-bark-100: #e8d5c0;
+  --color-bark-200: #c9a87a;
+  --color-bark-300: #a07845;
+  --color-bark-400: #6b4c28;
+  --color-bark-500: #3d2b14;
+  --color-bark-600: #1a120b;
+  --color-bark-700: #0e0906;
+  --color-moss: #2d4a2d;
+  --color-moss-light: #4a7c4a;
+  --color-moss-pale: #8fb88f;
+  --color-mist: #c8d8e8;
+  --color-mist-dark: #8a9db0;
+  --color-ivory: #f0ebe3;
+  --color-moonlight: #e8f0f8;
+  --color-koi: #c8602a;
+  --color-dusk: #2a1f3d;
+  --color-gold: #c9a87a;
+
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-body: 'DM Mono', 'Courier New', monospace;
   --font-mono: 'DM Mono', monospace;
 
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-slow: float 9s ease-in-out infinite;
+  --animate-breathe: breathe 4s ease-in-out infinite;
+  --animate-drift: drift 20s linear infinite;
+  --animate-particle: particle 8s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+  }
+  @keyframes breathe {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+  @keyframes drift {
+    0% { transform: translateX(-100vw); }
+    100% { transform: translateX(100vw); }
+  }
+  @keyframes particle {
+    0% { transform: translateY(0) scale(1); opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 0.5; }
+    100% { transform: translateY(-80px) scale(0); opacity: 0; }
+  }
+}
+
+:root {
   --bark: #1a120b;
   --bark-mid: #2d1f12;
   --moss: #2d4a2d;
@@ -175,15 +219,30 @@ body:has(button:hover) .cursor {
   animation-delay: var(--delay, 0s);
 }
 
-/* Ripple */
-@keyframes ripple {
-  0%   { transform: scale(0); opacity: 0.6; }
-  100% { transform: scale(3); opacity: 0; }
+
+/* Butterfly particles */
+@keyframes butterfly {
+  0%   { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+  15%  { opacity: 0.9; }
+  50%  { transform: translate(var(--fx), var(--fy)) rotate(10deg); opacity: 0.6; }
+  100% { transform: translate(calc(var(--fx) * 1.5), calc(var(--fy) * 1.2)) rotate(-5deg); opacity: 0; }
 }
 
-.ripple {
-  animation: ripple 3s ease-out infinite;
+.butterfly {
+  position: absolute;
+  animation: butterfly var(--duration, 8s) ease-in-out infinite;
   animation-delay: var(--delay, 0s);
+}
+
+.butterfly-wing {
+  display: block;
+  filter: drop-shadow(0 0 4px rgba(245, 215, 66, 0.4));
+  animation: flutter 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes flutter {
+  0%   { transform: scaleX(1); }
+  100% { transform: scaleX(0.6); }
 }
 
 /* Horizontal mist drift */

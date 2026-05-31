@@ -35,7 +35,7 @@ export async function parseResumeFile(file: File): Promise<ResumeData> {
     reader.onload = (e) => {
       try {
         const json = JSON.parse(e.target?.result as string);
-        resolve(json as ResumeData);
+        resolve(json as unknown as ResumeData);
       } catch {
         reject(new Error("File is not valid JSON. Export your resume as JSON and try again."));
       }
@@ -68,15 +68,17 @@ export function parseLatexToResumeData(latex: string): ResumeData {
     email: extract("email") || "",
     github: extract("github") || "",
     linkedin: extract("linkedin") || "",
+    location: extract("location") || "",
+    yearsOfExperience: 0,
+    philosophy: extract("philosophy") || "",
     skills: { General: extractAll("skill") },
-    projects: [],
     awards: [],
     education: [],
     experience: [],
     lastSynced: new Date().toISOString(),
   };
 
-  return data as ResumeData;
+  return data as unknown as ResumeData;
 }
 
 export function formatDate(iso: string) {

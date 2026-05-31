@@ -5,6 +5,7 @@ import { useResume } from "@/lib/resume-context";
 import PixelCat from "@/components/ui/PixelCat";
 import Fireflies from "@/components/ui/Fireflies";
 import { fadeUpVariants } from "@/components/ui/Card";
+import Butterflies from "../ui/Butterflies";
 
 export default function SkillsSection() {
   const { data } = useResume();
@@ -13,7 +14,7 @@ export default function SkillsSection() {
     <section
       id="skills"
       className="section-full py-32"
-      style={{ background: "linear-gradient(180deg, #0f1520 0%, #0f1a10 60%, #131a0d 100%)" }}
+      style={{ background: "linear-gradient(180deg, #1c140c 0%, #0f1a10 60%, #070905 100%)" }}
     >
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         {/* Dappled light */}
@@ -31,7 +32,8 @@ export default function SkillsSection() {
             }}
           />
         ))}
-        <Fireflies count={20} />
+        {/* <Fireflies count={20} /> */}
+        <Butterflies count={30} />
       </div>
 
       <div className="noise-overlay" />
@@ -43,7 +45,7 @@ export default function SkillsSection() {
           variants={fadeUpVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}
           className="mb-6"
         >
-          <p className="label-mono text-ivory/30 mb-3">05 / Skills</p>
+          <p className="label-mono text-ivory/30 mb-3">04 / Skills</p>
           <h2 className="display-lg text-ivory">What I work with.</h2>
         </motion.div>
 
@@ -52,7 +54,7 @@ export default function SkillsSection() {
           initial={{ x: 60, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="flex justify-start mb-16"
         >
           <PixelCat scene="butterfly" size={13} />

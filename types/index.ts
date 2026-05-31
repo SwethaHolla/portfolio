@@ -1,12 +1,10 @@
-export interface Project {
-  id: string;
-  title: string;
-  description: string;
-  thumbnail?: string;
-  github?: string;
-  live?: string;
-  tags: string[];
-  year: number;
+export interface PinnedRepo {
+  name: string;
+  description: string | null;
+  url: string;
+  primaryLanguage: { name: string; color: string } | null;
+  stargazerCount: number;
+  forkCount: number;
 }
 
 export interface Award {
@@ -46,7 +44,6 @@ export interface ResumeData {
   yearsOfExperience: number;
   philosophy: string;
   skills: Record<string, string[]>;
-  projects: Project[];
   awards: Award[];
   education: Education[];
   experience: Experience[];

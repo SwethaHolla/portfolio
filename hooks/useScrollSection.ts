@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, RefObject } from "react";
 
 export function useInView(
   threshold = 0.15
-): [RefObject<HTMLElement>, boolean] {
+): [RefObject<HTMLElement | null>, boolean] {
   const ref = useRef<HTMLElement>(null);
   const [inView, setInView] = useState(false);
 
@@ -22,7 +22,7 @@ export function useInView(
 }
 
 /** Returns 0–1 progress of how far an element is scrolled into view */
-export function useScrollProgress(ref: RefObject<HTMLElement>) {
+export function useScrollProgress(ref: RefObject<HTMLElement | null>) {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {

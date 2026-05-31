@@ -13,17 +13,38 @@ export default function ExperienceSection() {
     <section
       id="experience"
       className="section-full py-32"
-      style={{ background: "linear-gradient(180deg, #1a120b 0%, #161009 50%, #1a150d 100%)" }}
+      style={{ background: "linear-gradient(180deg, #27301f 0%, #161009 50%, #1a150d 100%)" }}
     >
-      {/* Branch SVG background */}
+      {/* Layered root system */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-        <svg className="absolute bottom-1/3 left-0 w-full opacity-25" viewBox="0 0 1440 200" preserveAspectRatio="none">
-          <path d="M0,100 Q200,60 400,90 Q600,120 800,85 Q1000,55 1200,80 Q1340,95 1440,70"
-            stroke="#5c3d1e" strokeWidth="8" fill="none" />
-          <path d="M0,108 Q200,68 400,98 Q600,128 800,93 Q1000,63 1200,88 Q1340,103 1440,78"
-            stroke="#3d2b14" strokeWidth="5" fill="none" opacity="0.6" />
+        {/* Far roots */}
+        <svg className="absolute top-1/2 w-full opacity-10" viewBox="0 0 1440 500" preserveAspectRatio="xMidYMin slice">
+          <path d="M0,0 Q100,80 200,60 Q300,40 400,120 Q500,200 600,160 Q700,120 800,220 Q900,320 1000,260 Q1100,200 1200,300 Q1300,400 1440,350"
+            stroke="#5c3d1e" strokeWidth="6" fill="none" />
+          <path d="M50,10 Q150,100 250,80 Q350,60 450,140 Q550,220 650,180 Q750,140 850,240 Q950,340 1050,280 Q1150,220 1250,320"
+            stroke="#5c3d1e" strokeWidth="4" fill="none" />
+          <path d="M100,20 Q200,50 300,30 Q400,10 500,90 Q600,170 700,130 Q800,90 900,190"
+            stroke="#5c3d1e" strokeWidth="3" fill="none" />
         </svg>
-        <Fireflies count={12} />
+        {/* Mid roots */}
+        <svg className="absolute top-1/2 w-full opacity-20" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMin slice">
+          <path d="M0,0 Q150,120 300,80 Q450,40 600,180 Q750,320 900,240 Q1050,160 1200,340 Q1350,480 1440,400"
+            stroke="#3d2b14" strokeWidth="10" fill="none" />
+          <path d="M-100,20 Q50,140 200,100 Q350,60 500,200 Q650,340 800,260 Q950,180 1100,360 Q1250,500 1400,420"
+            stroke="#3d2b14" strokeWidth="6" fill="none" />
+          <path d="M200,0 Q350,80 500,40 Q650,0 800,140 Q950,280 1100,200 Q1250,120 1400,280"
+            stroke="#3d2b14" strokeWidth="4" fill="none" />
+        </svg>
+        {/* Near roots */}
+        <svg className="absolute top-1/2 w-full opacity-35" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMin slice">
+          <path d="M0,0 Q200,160 400,100 Q600,40 800,240 Q1000,440 1200,320 Q1350,220 1440,450"
+            stroke="#2a1f12" strokeWidth="14" fill="none" />
+          <path d="M-200,30 Q0,190 200,130 Q400,70 600,270 Q800,470 1000,350 Q1150,250 1300,480"
+            stroke="#2a1f12" strokeWidth="8" fill="none" />
+          <path d="M400,0 Q600,120 800,60 Q1000,0 1200,200 Q1350,340 1440,280"
+            stroke="#2a1f12" strokeWidth="5" fill="none" />
+        </svg>
+        <Fireflies count={60} />
       </div>
 
       <div className="noise-overlay" />
@@ -35,7 +56,7 @@ export default function ExperienceSection() {
           initial={{ x: -60, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="flex justify-center mb-16"
         >
           <PixelCat scene="branch" size={13} />
@@ -65,17 +86,7 @@ export default function ExperienceSection() {
             <p className="display-lg text-gold/90">{data.experience.length}</p>
             <p className="label-mono mt-2">Companies</p>
           </motion.div>
-          <motion.div
-            variants={fadeUpVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={0.3}
-            className="text-center"
-          >
-            <p className="display-lg text-gold/90">{data.projects.length}</p>
-            <p className="label-mono mt-2">Projects shipped</p>
-          </motion.div>
+
         </div>
 
         {/* Experience timeline */}

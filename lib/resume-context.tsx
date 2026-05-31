@@ -27,7 +27,7 @@ interface ResumeContextValue {
 const ResumeContext = createContext<ResumeContextValue | null>(null);
 
 export function ResumeProvider({ children }: { children: ReactNode }) {
-  const [data, setData] = useState<ResumeData>(defaultData as ResumeData);
+  const [data, setData] = useState<ResumeData>(defaultData as unknown as ResumeData);
   const [resync, setResync] = useState<ResyncState>({
     status: "idle",
     message: "",

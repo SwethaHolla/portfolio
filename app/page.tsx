@@ -6,10 +6,9 @@ import Navigation from "@/components/layout/Navigation";
 import HeroSection from "@/components/sections/HeroSection";
 import ExperienceSection from "@/components/sections/ExperienceSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
-import AwardsSection from "@/components/sections/AwardsSection";
 import SkillsSection from "@/components/sections/SkillsSection";
 import EducationSection from "@/components/sections/EducationSection";
-import ResyncButton from "@/components/ui/ResyncButton";
+import AwardsSection from "@/components/sections/AwardsSection";
 import { useKeyboardShortcuts } from "@/hooks/useKeyboardShortcuts";
 
 // Keyboard shortcut legend
@@ -34,12 +33,10 @@ export default function HomePage() {
       <HeroSection />
       <ExperienceSection />
       <ProjectsSection />
-      <AwardsSection />
       <SkillsSection />
       <EducationSection />
+      <AwardsSection />
 
-      {/* Resync */}
-      <ResyncButton />
 
       {/* Keyboard shortcut legend */}
       <AnimatePresence>
