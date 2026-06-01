@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
 import { useResume } from "@/lib/resume-context";
-import PixelCat from "@/components/ui/PixelCat";
 import Fireflies from "@/components/ui/Fireflies";
 import { fadeUpVariants } from "@/components/ui/Card";
 import Butterflies from "../ui/Butterflies";
@@ -132,7 +131,6 @@ export default function EducationSection() {
           transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="flex justify-center mb-16"
         >
-          <PixelCat scene="tree" size={13} />
         </motion.div>
 
         {/* Section header */}
@@ -140,7 +138,6 @@ export default function EducationSection() {
           variants={fadeUpVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="label-mono text-ivory/30 mb-3">05 / Education</p>
           <h2 className="display-lg text-ivory">Where I studied.</h2>
         </motion.div>
 
@@ -156,9 +153,11 @@ export default function EducationSection() {
               custom={i * 0.15}
               whileHover={{ x: 6 }}
               transition={{ duration: 0.25 }}
-              className="group border border-white/[0.07] bg-white/[0.02] rounded-sm p-7 hover:border-white/[0.12] transition-colors"
+              // className="group border border-white/[0.07] bg-white/[0.02] rounded-sm p-7 hover:border-white/[0.12] transition-colors"
             >
-              <div className="flex items-start justify-between gap-6 flex-wrap">
+              <br />
+              <br />
+              <div className="flex items-start justify-between gap-6 flex-wrap p-10">
                 <div>
                   <h3 className="display-md text-ivory mb-1">{edu.institution}</h3>
                   <p className="font-display text-lg text-ivory/50 font-light italic">
@@ -174,7 +173,7 @@ export default function EducationSection() {
                   <p className="label-mono text-gold/40 mb-2">{edu.year}</p>
                   <div className="flex items-center gap-1 justify-end">
                     <MapPin size={10} className="text-ivory/20" />
-                    <span className="label-mono text-ivory/20" style={{ fontSize: "0.6rem" }}>
+                    <span className="label-mono text-ivory/20" style={{ fontSize: "0.5rem" }}>
                       {edu.location}
                     </span>
                   </div>
@@ -183,31 +182,6 @@ export default function EducationSection() {
             </motion.div>
           ))}
         </div>
-
-        {/* Footer */}
-        <motion.div
-          variants={fadeUpVariants} initial="hidden" whileInView="visible"
-          viewport={{ once: true }} custom={0.4}
-          className="mt-24 pt-8 border-t border-white/[0.06] flex items-center justify-between flex-wrap gap-4"
-        >
-          <span className="label-mono text-ivory/20" style={{ fontSize: "0.58rem" }}>
-            {data.name} &mdash; {new Date().getFullYear()}
-          </span>
-          <div className="flex gap-6">
-            <a href={data.github} target="_blank" rel="noopener noreferrer"
-              className="label-mono text-ivory/20 hover:text-ivory/50 transition-colors" style={{ fontSize: "0.58rem" }}>
-              GitHub
-            </a>
-            <a href={data.linkedin} target="_blank" rel="noopener noreferrer"
-              className="label-mono text-ivory/20 hover:text-ivory/50 transition-colors" style={{ fontSize: "0.58rem" }}>
-              LinkedIn
-            </a>
-            <a href={`mailto:${data.email}`}
-              className="label-mono text-ivory/20 hover:text-ivory/50 transition-colors" style={{ fontSize: "0.58rem" }}>
-              {data.email}
-            </a>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

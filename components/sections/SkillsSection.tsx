@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { useResume } from "@/lib/resume-context";
-import PixelCat from "@/components/ui/PixelCat";
 import Fireflies from "@/components/ui/Fireflies";
 import { fadeUpVariants } from "@/components/ui/Card";
 import Butterflies from "../ui/Butterflies";
@@ -14,7 +13,7 @@ export default function SkillsSection() {
     <section
       id="skills"
       className="section-full py-32"
-      style={{ background: "linear-gradient(180deg, #1c140c 0%, #0f1a10 60%, #070905 100%)" }}
+      style={{ background: "linear-gradient(180deg, #63c4e1 0%, #122642 60%, #000000 100%)" }}
     >
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         {/* Dappled light */}
@@ -32,8 +31,7 @@ export default function SkillsSection() {
             }}
           />
         ))}
-        {/* <Fireflies count={20} /> */}
-        <Butterflies count={30} />
+      
       </div>
 
       <div className="noise-overlay" />
@@ -43,9 +41,8 @@ export default function SkillsSection() {
         {/* Section header */}
         <motion.div
           variants={fadeUpVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="mb-6"
+          className="mb-10"
         >
-          <p className="label-mono text-ivory/30 mb-3">04 / Skills</p>
           <h2 className="display-lg text-ivory">What I work with.</h2>
         </motion.div>
 
@@ -57,7 +54,6 @@ export default function SkillsSection() {
           transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="flex justify-start mb-16"
         >
-          <PixelCat scene="butterfly" size={13} />
         </motion.div>
 
         {/* Skill groups */}
@@ -71,7 +67,7 @@ export default function SkillsSection() {
               viewport={{ once: true, margin: "-40px" }}
               custom={gi * 0.12}
             >
-              <p className="label-mono text-gold/50 mb-5">{category}</p>
+              <p className="label-mono text-gold/50 mb-5 text-base">{category}</p>
               <div className="flex flex-wrap gap-2.5">
                 {(skills as string[]).map((skill, si) => (
                   <motion.span
@@ -81,8 +77,8 @@ export default function SkillsSection() {
                     viewport={{ once: true }}
                     transition={{ delay: gi * 0.08 + si * 0.04, duration: 0.4 }}
                     whileHover={{ scale: 1.05, borderColor: "rgba(201,168,122,0.3)" }}
-                    className="px-3 py-1.5 border border-white/[0.08] bg-white/[0.025] rounded-sm
-                      font-mono text-sm text-ivory/55 cursor-default transition-colors hover:text-ivory/80"
+                    className="px-4 py-2 border border-white/[0.08] bg-white/[0.025] rounded-sm
+                      font-mono text-base text-ivory/55 cursor-default transition-colors hover:text-ivory/80"
                   >
                     {skill}
                   </motion.span>

@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
-import PixelCat from "@/components/ui/PixelCat";
 import Fireflies from "@/components/ui/Fireflies";
 import Butterflies from "@/components/ui/Butterflies";
 import { fadeUpVariants } from "@/components/ui/Card";
@@ -223,10 +222,11 @@ export default function ProjectsSection() {
         {/* Section header */}
         <motion.div
           variants={fadeUpVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}
-          className="mb-4"
+          className="mb-10"
         >
-          <p className="label-mono text-ivory/30 mb-3">03 / Projects</p>
           <h2 className="display-lg text-ivory">Things I&rsquo;ve built.</h2>
+          <br />
+          <br />
         </motion.div>
 
         {/* Cat beside pond */}
@@ -237,7 +237,6 @@ export default function ProjectsSection() {
           transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="flex justify-end mb-12"
         >
-          <PixelCat scene="pond" size={12} />
         </motion.div>
 
         {/* Pinned repos grid */}

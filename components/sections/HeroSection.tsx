@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { useResume } from "@/lib/resume-context";
-import PixelCat from "@/components/ui/PixelCat";
 import Fireflies from "@/components/ui/Fireflies";
 
 const fadeUp = (delay: number) => ({
@@ -52,7 +51,7 @@ export default function HeroSection() {
       <Fireflies count={200} />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col self-start w-full px-6 md:px-20 md:flex-row">
+      <div className="relative z-10 flex flex-col items-center w-full px-6 md:px-10 md:flex-row md:items-center md:justify-center">
         {/* Left column — headline */}
         <div className="pt-12">
           <motion.h1 {...fadeUp(0.6)} className="display-xl text-ivory mb-0 max-w-4xl text-left">
@@ -62,13 +61,17 @@ export default function HeroSection() {
           </motion.h1>
         </div>
 
-        {/* Right column — pixel cat + info */}
+        {/* Right column — info */}
         <div className="pt-12 flex flex-col items-center text-center">
           <motion.div
             {...fadeUp(0.3)}
             className="animate-float"
           >
-            <PixelCat scene="hero" size={14} />
+            <img
+              src="/images/cat_standing.png"
+              alt="Standing cat"
+              className="w-auto h-48 md:h-64 object-contain"
+            />
           </motion.div>
           <br />
           <motion.h2 {...fadeUp(0.9)} className="text-2xl md:text-4xl font-bold text-ivory/90 mb-1">
@@ -77,7 +80,7 @@ export default function HeroSection() {
           <motion.p {...fadeUp(0.9)} className="text-sm md:text-base text-ivory/60 mb-8">
             {data.role}
           </motion.p>
-
+          <br />
           {/* Philosophy */}
           <motion.p
             {...fadeUp(1.1)}

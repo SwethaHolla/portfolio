@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Download, Mail, Menu, X } from "lucide-react";
 
@@ -39,11 +39,22 @@ function scrollTo(id: string) {
 export default function Navigation() {
   const { data } = useResume();
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [active, setActive] = useState("hero");
   const [mobileOpen, setMobileOpen] = useState(false);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 60);
+      if (y > 60) {
+        setHidden(y > lastScrollY.current);
+      } else {
+        setHidden(false);
+      }
+      lastScrollY.current = y;
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -82,29 +93,33 @@ export default function Navigation() {
       <nav
         aria-label="Main navigation"
         className={cn(
-          "fixed top-0 inset-x-0 z-40 transition-all duration-700",
+          "fixed top-0 inset-x-0 z-40 transition-all duration-500",
+          hidden ? "-translate-y-full" : "translate-y-0",
           scrolled
             ? "bg-bark-600/80 backdrop-blur-md border-b border-white/[0.06]"
             : "bg-transparent"
         )}
       >
-        <div className="max-w-7xl mx-auto px-6 h-16 grid grid-cols-2 md:grid-cols-3 items-center">
-          {/* Wordmark */}
+        <div className="flex h-20 items-center gap-x-6 justify-between">
+          {/* Spacer */}
+          <div className="w-[0.25px]" />
+
+          {/* Left */}
           <button
             onClick={() => handleNav("hero")}
-            className="justify-self-start font-display text-base text-ivory/50 hover:text-ivory/90 transition-colors tracking-wide"
+            className="font-display text-lg text-ivory/50 hover:text-ivory/90 transition-colors tracking-wide pl-4"
           >
             {data.name}
           </button>
 
-          {/* Desktop links */}
-          <ul className="hidden md:flex justify-center gap-8" role="list">
+          {/* Center */}
+          <ul className="hidden md:flex gap-10" role="list">
             {NAV_SECTIONS.slice(1).map(({ id, label }) => (
               <li key={id}>
                 <button
                   onClick={() => handleNav(id)}
                   className={cn(
-                    "font-display text-sm transition-colors tracking-wide",
+                    "font-display text-base transition-colors tracking-wide",
                     active === id ? "text-ivory/90" : "text-ivory/40 hover:text-ivory/70"
                   )}
                 >
@@ -114,34 +129,35 @@ export default function Navigation() {
             ))}
           </ul>
 
-          {/* Social links */}
-          <div className="hidden md:flex justify-end gap-5">
+          {/* Right */}
+          <div className="hidden md:flex gap-6 pr-10">
             <a href={data.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub"
               className="text-ivory/30 hover:text-ivory/70 transition-colors">
-              <GithubIcon size={18} />
+              <GithubIcon size={20} />
             </a>
             <a href={data.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
               className="text-ivory/30 hover:text-ivory/70 transition-colors">
-              <LinkedInIcon size={18} />
+              <LinkedInIcon size={20} />
             </a>
             <a href={`mailto:${data.email}`} aria-label="Email"
               className="text-ivory/30 hover:text-ivory/70 transition-colors">
-              <Mail size={18} />
+              <Mail size={20} />
             </a>
             <a href="/api/resume" target="_blank" rel="noopener noreferrer" aria-label="Resume"
               className="text-ivory/30 hover:text-ivory/70 transition-colors">
-              <Download size={18} />
+              <Download size={20} />
             </a>
+            <div className="w-[0.25px]" />
           </div>
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden justify-self-end text-ivory/50 hover:text-ivory/90"
+            className="md:hidden text-ivory/50 hover:text-ivory/90"
             onClick={() => setMobileOpen((v) => !v)}
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
           >
-            {mobileOpen ? <X size={18} /> : <Menu size={18} />}
+            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </nav>
@@ -171,7 +187,7 @@ export default function Navigation() {
                 </li>
               ))}
             </ul>
-            <div className="flex gap-5 px-6 pb-5">
+            <div className="flex gap-6 px-6 pb-5">
               <a href={data.github} target="_blank" rel="noopener noreferrer" className="text-ivory/30 hover:text-ivory/70">
                 <GithubIcon size={18} />
               </a>

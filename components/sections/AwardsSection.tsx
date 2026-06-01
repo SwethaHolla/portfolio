@@ -3,7 +3,8 @@
 import { motion } from "framer-motion";
 import { Award as AwardIcon } from "lucide-react";
 import { useResume } from "@/lib/resume-context";
-import PixelCat from "@/components/ui/PixelCat";
+
+import Butterflies from "../ui/Butterflies";
 import { fadeUpVariants } from "@/components/ui/Card";
 
 export default function AwardsSection() {
@@ -13,9 +14,9 @@ export default function AwardsSection() {
     <section
       id="awards"
       className="section-full py-32"
-      style={{ background: "linear-gradient(180deg, #63c4e1 0%, #1e214b 50%, #1c140c 100%)" }}
+      style={{ background: "linear-gradient(180deg, #160e1b 0%, #0d260a 50%, #261e16 100%)" }}
     >
-      {/* Water surface */}
+
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         <div className="absolute bottom-0 inset-x-0 h-2/3"
           style={{ background: "linear-gradient(0deg, #1c140c 0%, transparent 100%)" }} />
@@ -35,13 +36,14 @@ export default function AwardsSection() {
             } as React.CSSProperties}
           />
         ))}
+        <Butterflies count={26}/>
       </div>
 
       <div className="noise-overlay" />
       <div className="vignette" />
 
       <div className="relative z-10 w-full max-w-4xl mx-auto px-6">
-        {/* Cat submerged */}
+        {/* Cat stretching */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -49,7 +51,11 @@ export default function AwardsSection() {
           transition={{ duration: 1.2 }}
           className="flex justify-center mb-12"
         >
-          <PixelCat scene="water" size={14} />
+        <img
+            src="/images/cat_strecking.png"
+            alt="Stretching cat"
+            className="w-auto h-48 md:h-56 object-contain"
+          />
         </motion.div>
 
         {/* Section label */}
@@ -57,10 +63,9 @@ export default function AwardsSection() {
           variants={fadeUpVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="label-mono text-ivory/30 mb-3">06 / Recognition</p>
           <h2 className="display-lg text-ivory">Awards & honours.</h2>
         </motion.div>
-
+        <br />
         {/* Awards list */}
         <div className="flex flex-col gap-6">
           {data.awards.map((award, i) => (

@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { useResume } from "@/lib/resume-context";
-import PixelCat from "@/components/ui/PixelCat";
 import Fireflies from "@/components/ui/Fireflies";
 import { fadeUpVariants } from "@/components/ui/Card";
 
@@ -59,7 +58,6 @@ export default function ExperienceSection() {
           transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="flex justify-center mb-16"
         >
-          <PixelCat scene="branch" size={13} />
         </motion.div>
 
         {/* Stats row */}
@@ -88,7 +86,8 @@ export default function ExperienceSection() {
           </motion.div>
 
         </div>
-
+        <br />
+        <br />
         {/* Experience timeline */}
         <div className="relative">
           {/* Vertical line */}
@@ -96,36 +95,40 @@ export default function ExperienceSection() {
 
           <div className="flex flex-col gap-12">
             {data.experience.map((exp, i) => (
-              <motion.div
-                key={exp.id}
-                variants={fadeUpVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-40px" }}
-                custom={i * 0.15}
-                className={`relative md:w-1/2 pl-8 md:pl-0 ${
-                  i % 2 === 0
-                    ? "md:pr-12 md:text-right md:self-start"
-                    : "md:pl-12 md:self-end md:translate-x-full md:-mt-16"
-                }`}
-              >
-                {/* Dot */}
-                <div className={`absolute top-1.5 w-2 h-2 rounded-full bg-gold/60 border border-gold/30 ${
-                  i % 2 === 0
-                    ? "left-0 md:left-auto md:-right-[calc(3rem+4px)]"
-                    : "left-0 md:-left-[calc(3rem+4px)]"
-                }`} />
+              <div key={exp.id} className="relative">
+                {/* Dot - positioned relative to full-width wrapper, always on the line */}
+                <div className="absolute top-1.5 left-0 md:left-1/2 w-2 h-2 rounded-full bg-gold/60 border border-gold/30 -translate-x-1/2" />
 
-                <p className="label-mono text-gold/50 mb-1">{exp.period}</p>
-                <h3 className="display-md text-ivory mb-0.5">{exp.role}</h3>
-                <p className="font-mono text-sm text-ivory/40 mb-2">{exp.company}</p>
-                {exp.description && (
-                  <p className="text-sm text-ivory/40 leading-relaxed font-light max-w-xs"
-                    style={{ fontFamily: "var(--font-display)", fontSize: "1rem" }}>
-                    {exp.description}
+                {/* Card */}
+                <motion.div
+                  variants={fadeUpVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-40px" }}
+                  custom={i * 0.15}
+                  className={`md:w-1/2 pl-8 md:pl-0 ${
+                    i % 2 === 0
+                      ? "ml-auto text-right"
+                      : "mr-auto text-left"
+                  }`}
+                >
+                  <p className="label-mono text-gold/50 mb-1">{exp.period}</p>
+                  <h3 className="display-md text-ivory mb-0.5">{exp.role}</h3>
+                  <p className="font-mono text-sm text-ivory/40 mb-2">{exp.company}</p>
+                  {/* <p className="text-sm text-ivory/40 leading-relaxed font-light max-w-xs">{exp.description}</p> */}
+                  <p 
+                    className={`text-sm text-ivory/40 leading-relaxed font-light max-w-sm md:max-w-md ${
+                      i % 2 === 0
+                        ? "ml-auto text-right"
+                        : "mr-auto text-left"
+                    }`}
+                  style={{ fontFamily: "var(--font-display)", fontSize: "1rem" }}
+                  >
+                   {exp.description}
                   </p>
-                )}
-              </motion.div>
+                  {/* )} */}
+                </motion.div>
+              </div>
             ))}
           </div>
         </div>
